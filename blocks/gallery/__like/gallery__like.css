@@ -1,7 +1,4 @@
 .gallery__like {
-  position: absolute;
-  bottom: 30px;
-  right: 20px;
   border: none;
   padding: 0;
   cursor: pointer;
