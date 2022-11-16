@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <img class="header__logo" src="images/Vector.svg" alt="логотип">
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__main">
+        <img class="profile__avatar" src="./images/Avatar.png" alt="Главное фото профиля">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <p class="profile__description">Исследователь океана</p>
+          <button type="button" class="profile__edit-button">
+            <img class="profile__button-image" src="images/Edit-Button.svg" alt="Редактировать профиль">
+          </button>
+        </div>
+      </div>
+      <button class="profile__add-button" type="button">
+        <img src="images/plus.svg" alt="Добавить фото">
+      </button>
+    </section>
+    <section class="gallery">
+      <div class="gallery__photos">
+        <div class="gallery__item">
+          <img src="images/kirill-pershin-1088404-unsplash.jpg" class="gallery__photo" alt="Старинный храм в горах">
+          <p class="gallery__text">Карачаевск</p>
+          <img class="gallery__like" src="images/like.svg" alt="Лайк">>
+        </div>
+        <div class="gallery__item">
+          <img src="images/kirill-pershin-1404681-unsplash.jpg" class="gallery__photo" alt="Эльбрус на закате">
+          <p class="gallery__text">Гора Эльбус</p>
+          <img class="gallery__like" src="images/like.svg" alt="Лайк">>
+        </div>
+        <div class="gallery__item">
+          <img src="images/kirill-pershin-1556355-unsplash.jpg" class="gallery__photo" alt="Горы и осенний лес">
+          <p class="gallery__text">Домбай</p>
+          <img class="gallery__like" src="images/like.svg" alt="Лайк">>
+        </div>
+        <div class="gallery__item">
+          <img src="images/kirill-pershin-1088404-unsplash.jpg" class="gallery__photo" alt="Старинный храм в горах">
+          <p class="gallery__text">Карачаевск</p>
+          <img class="gallery__like" src="images/like.svg" alt="Лайк">>
+        </div>
+        <div class="gallery__item">
+          <img src="images/kirill-pershin-1404681-unsplash.jpg" class="gallery__photo" alt="Эльбрус на закате">
+          <p class="gallery__text">Гора Эльбус</p>
+          <img class="gallery__like" src="images/like.svg" alt="Лайк">>
+        </div>
+        <div class="gallery__item">
+          <img src="images/kirill-pershin-1556355-unsplash.jpg" class="gallery__photo" alt="Горы и осенний лес">
+          <p class="gallery__text">Карачаево-черкессия</p>
+          <img class="gallery__like" src="images/like.svg" alt="Лайк">
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">© 2022 Mesto Russia</p>
+  </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <form class="popup__form" method="post" action="">
+        <button class="popup__close" type="reset" title="Закрыть"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <input type="text" class="popup__input-name" name="name" value="Жак-Ив Кусто">
+        <input type="text" class="popup__input-info" name="info" value="Исследователь океана">
+        <button type="submit" class="popup__input-save">
+          <span class="popup__save">Сохранить</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  <script src="/scripts/index.js"></script>
+</body>
+
+</html>

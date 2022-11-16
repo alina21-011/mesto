@@ -1,0 +1,15 @@
+.popup__save {
+  color: white;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+@media (max-width: 544px) {
+  .popup__save  {
+font-size: 14px;
+line-height: 17px;
+  }
+}

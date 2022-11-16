@@ -1,0 +1,12 @@
+.page {
+  background-color: #000000;
+  padding: 45px 0 60px;
+  font-family: "Inter", "Arial", sans-serif;
+  color: white;
+}
+
+@media (max-width: 544px) {
+  .page {
+    padding: 28px 0 36px;
+  }
+}

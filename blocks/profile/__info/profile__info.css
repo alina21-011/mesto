@@ -1,0 +1,15 @@
+.profile__info {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: flex-start;
+  grid-template-areas:
+    "name edit-button"
+    "description .";
+}
+
+@media (max-width: 544px) {
+  .profile__info  {
+    justify-items: center;
+    margin-left: 20px;
+  }
+}
