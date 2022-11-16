@@ -1,12 +1,13 @@
 .profile__main {
- display: flex;
-   max-width: 480px;
+  display: flex;
+  max-width: 480px;
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 @media (max-width: 544px) {
-.profile__main {
-  justify-content: center;
-}
+  .profile__main {
+    justify-content: center;
+  }
 }

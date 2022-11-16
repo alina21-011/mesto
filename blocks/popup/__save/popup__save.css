@@ -8,8 +8,8 @@
 }
 
 @media (max-width: 544px) {
-  .popup__save  {
-font-size: 14px;
-line-height: 17px;
+  .popup__save {
+    font-size: 14px;
+    line-height: 17px;
   }
 }

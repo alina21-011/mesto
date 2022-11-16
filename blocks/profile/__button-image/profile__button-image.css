@@ -3,7 +3,7 @@
 }
 
 @media (max-width: 544px) {
-  .profile__button-image  {
+  .profile__button-image {
     max-height: 18px;
   }
 }
