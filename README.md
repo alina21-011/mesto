@@ -17,4 +17,4 @@ HTML | CSS | Java Script
 
 **Github**
 
-* [Ссылка на Github](https://alina21-011.github.io/russian-travel/)
+* [Ссылка на Github](https://alina21-011.github.io/mesto/)
