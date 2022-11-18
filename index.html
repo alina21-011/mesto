@@ -19,14 +19,10 @@
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__description">Исследователь океана</p>
-          <button type="button" class="profile__edit-button">
-            <img class="profile__button-image" src="images/Edit-Button.svg" alt="Редактировать профиль">
-          </button>
+          <button type="button" class="profile__edit-button"></button>
         </div>
       </div>
-      <button class="profile__add-button" type="button">
-        <img src="images/plus.svg" alt="Добавить фото">
-      </button>
+      <button class="profile__add-button" type="button"></button>
     </section>
     <section class="gallery">
       <div class="gallery__photos">
@@ -34,42 +30,42 @@
           <img src="images/kirill-pershin-1088404-unsplash.jpg" class="gallery__photo" alt="Старинный храм в горах">
           <div class="gallery__info">
             <p class="gallery__text">Карачаевск</p>
-            <img class="gallery__like" src="images/like.svg" alt="Лайк">
+            <button class="gallery__like"></button>
           </div>
         </article>
         <article class="gallery__item">
           <img src="images/kirill-pershin-1404681-unsplash.jpg" class="gallery__photo" alt="Эльбрус на закате">
           <div class="gallery__info">
-            <p class="gallery__text">Гора Эльбус</p>
-            <img class="gallery__like" src="images/like.svg" alt="Лайк">
+            <p class="gallery__text">Гора Эльбрус</p>
+            <button class="gallery__like"></button>
           </div>
         </article>
         <article class="gallery__item">
           <img src="images/kirill-pershin-1556355-unsplash.jpg" class="gallery__photo" alt="Горы и осенний лес">
           <div class="gallery__info">
             <p class="gallery__text">Домбай</p>
-            <img class="gallery__like" src="images/like.svg" alt="Лайк">
+            <button class="gallery__like"></button>
           </div>
         </article>
         <article class="gallery__item">
           <img src="images/kirill-pershin-1088404-unsplash.jpg" class="gallery__photo" alt="Старинный храм в горах">
           <div class="gallery__info">
             <p class="gallery__text">Карачаевск</p>
-            <img class="gallery__like" src="images/like.svg" alt="Лайк">
+            <button class="gallery__like"></button>
           </div>
         </article>
         <article class="gallery__item">
           <img src="images/kirill-pershin-1404681-unsplash.jpg" class="gallery__photo" alt="Эльбрус на закате">
           <div class="gallery__info">
             <p class="gallery__text">Гора Эльбус</p>
-            <img class="gallery__like" src="images/like.svg" alt="Лайк">
+            <button class="gallery__like"></button>
           </div>
         </article>
         <article class="gallery__item">
           <img src="images/kirill-pershin-1556355-unsplash.jpg" class="gallery__photo" alt="Горы и осенний лес">
           <div class="gallery__info">
             <p class="gallery__text">Карачаево-черкессия</p>
-            <img class="gallery__like" src="images/like.svg" alt="Лайк">
+            <button class="gallery__like"></button>
           </div>
         </article>
       </div>
@@ -80,7 +76,7 @@
   </footer>
   <div class="popup">
     <div class="popup__container">
-      <form class="popup__form" method="post">
+      <form class="popup__form" method="post" name="form">
         <button class="popup__close" type="reset" title="Закрыть"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <input type="text" class="popup__input-name" name="name" value="Жак-Ив Кусто">

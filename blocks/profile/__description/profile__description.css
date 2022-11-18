@@ -6,6 +6,10 @@
   line-height: 22px;
   grid-area: description;
   align-self: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 300px;
 
 }
 

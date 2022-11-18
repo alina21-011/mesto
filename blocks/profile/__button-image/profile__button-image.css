@@ -1,9 +1,0 @@
-.profile__button-image {
-  max-height: 24px;
-}
-
-@media (max-width: 544px) {
-  .profile__button-image {
-    max-height: 18px;
-  }
-}

@@ -6,6 +6,10 @@
   line-height: 48px;
   grid-area: name;
   align-self: flex-end;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 300px;
 }
 
 @media (max-width: 544px) {
