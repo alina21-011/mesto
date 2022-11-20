@@ -1,11 +1,11 @@
 .content {
   max-width: 880px;
-  padding: 37px 200px 0;
+  padding: 38px 200px 0;
   margin: auto;
 }
 
 @media (max-width: 1270px) {
   .content {
-    padding: 37px 19px 0;
+    padding: 40px 19px 0;
   }
 }

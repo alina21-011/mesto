@@ -10,6 +10,6 @@
 @media (max-width: 544px) {
   .profile__info {
     justify-items: center;
-    margin-left: 20px;
+    margin-top: 2px;
   }
 }

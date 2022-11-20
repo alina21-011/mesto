@@ -15,75 +15,73 @@
   <main class="content">
     <section class="profile">
       <div class="profile__main">
-        <img class="profile__avatar" src="./images/Avatar.png" alt="Главное фото профиля">
+        <img class="profile__avatar" src="./images/avatar1.jpg" alt="Главное фото профиля">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__description">Исследователь океана</p>
-          <button type="button" class="profile__edit-button"></button>
+          <button type="button" class="profile__edit-button" aria-label="Редактировать информацию"></button>
         </div>
       </div>
-      <button class="profile__add-button" type="button"></button>
+      <button class="profile__add-button" type="button" aria-label="Добавить фото"></button>
     </section>
     <section class="gallery">
-      <div class="gallery__photos">
-        <article class="gallery__item">
-          <img src="images/kirill-pershin-1088404-unsplash.jpg" class="gallery__photo" alt="Старинный храм в горах">
-          <div class="gallery__info">
-            <p class="gallery__text">Карачаевск</p>
-            <button class="gallery__like"></button>
+      <div class="gallery__places">
+        <article class="place">
+          <img src="images/kirill-pershin-1088404-unsplash.jpg" class="place__photo" alt="Старинный храм в горах">
+          <div class="place__info">
+            <h2 class="place__title">Карачаевск</h2>
+            <button class="place__like place__like_active" type="button" aria-label="Нравится фотография"></button>
           </div>
         </article>
-        <article class="gallery__item">
-          <img src="images/kirill-pershin-1404681-unsplash.jpg" class="gallery__photo" alt="Эльбрус на закате">
-          <div class="gallery__info">
-            <p class="gallery__text">Гора Эльбрус</p>
-            <button class="gallery__like"></button>
+        <article class="place">
+          <img src="images/kirill-pershin-1404681-unsplash.jpg" class="place__photo" alt="Эльбрус на закате">
+          <div class="place__info">
+            <h2 class="place__title">Гора Эльбрус</h2>
+            <button class="place__like place__like_active" type="button" aria-label="Нравится фотография"></button>
           </div>
         </article>
-        <article class="gallery__item">
-          <img src="images/kirill-pershin-1556355-unsplash.jpg" class="gallery__photo" alt="Горы и осенний лес">
-          <div class="gallery__info">
-            <p class="gallery__text">Домбай</p>
-            <button class="gallery__like"></button>
+        <article class="place">
+          <img src="images/kirill-pershin-1556355-unsplash.jpg" class="place__photo" alt="Горы и осенний лес">
+          <div class="place__info">
+            <h2 class="place__title">Домбай</h2>
+            <button class="place__like place__like_active" type="button" aria-label="Нравится фотография"></button>
           </div>
         </article>
-        <article class="gallery__item">
-          <img src="images/kirill-pershin-1088404-unsplash.jpg" class="gallery__photo" alt="Старинный храм в горах">
-          <div class="gallery__info">
-            <p class="gallery__text">Карачаевск</p>
-            <button class="gallery__like"></button>
+        <article class="place">
+          <img src="images/kirill-pershin-1088404-unsplash.jpg" class="place__photo" alt="Старинный храм в горах">
+          <div class="place__info">
+            <h2 class="place__title">Карачаевск</h2>
+            <button class="place__like place__like_active" type="button" aria-label="Нравится фотография"></button>
           </div>
         </article>
-        <article class="gallery__item">
-          <img src="images/kirill-pershin-1404681-unsplash.jpg" class="gallery__photo" alt="Эльбрус на закате">
-          <div class="gallery__info">
-            <p class="gallery__text">Гора Эльбус</p>
-            <button class="gallery__like"></button>
+        <article class="place">
+          <img src="images/kirill-pershin-1404681-unsplash.jpg" class="place__photo" alt="Эльбрус на закате">
+          <div class="place__info">
+            <h2 class="place__title">Гора Эльбус</h2>
+            <button class="place__like place__like_active" type="button" aria-label="Нравится фотография"></button>
           </div>
         </article>
-        <article class="gallery__item">
-          <img src="images/kirill-pershin-1556355-unsplash.jpg" class="gallery__photo" alt="Горы и осенний лес">
-          <div class="gallery__info">
-            <p class="gallery__text">Карачаево-черкессия</p>
-            <button class="gallery__like"></button>
+        <article class="place">
+          <img src="images/kirill-pershin-1556355-unsplash.jpg" class="place__photo" alt="Горы и осенний лес">
+          <div class="place__info">
+            <h2 class="place__title">Карачаево-Черкессия</h2>
+            <button class="place__like place__like_active" type="button" aria-label="Нравится фотография"></button>
           </div>
         </article>
       </div>
     </section>
   </main>
   <footer class="footer">
-    <p class="footer__copyright">© 2022 Mesto Russia</p>
+    <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
   </footer>
   <div class="popup">
     <div class="popup__container">
+      <button class="popup__close" type="reset" aria-label=Закрыть"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form" method="post" name="form">
-        <button class="popup__close" type="reset" title="Закрыть"></button>
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__input-name" name="name" value="Жак-Ив Кусто">
-        <input type="text" class="popup__input-info" name="info" value="Исследователь океана">
-        <button type="submit" class="popup__input-save">
-          <span class="popup__save">Сохранить</span>
-        </button>
+        <input type="text"  class="popup__input popup__input_data_name"required name="name">
+        <input type="text" class="popup__input popup__input_data_info"required name="info">
+        <button type="submit" class="popup__input-save">Сохранить</button>
       </form>
     </div>
   </div>

@@ -1,4 +1,4 @@
-.gallery__like {
+.place__like {
   border: none;
   padding: 0;
   cursor: pointer;
@@ -6,15 +6,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: white;
-  width: 22px;
-  padding-left: 40px;
+  min-width: 22px;
+  margin-left: 30px;
   margin-right: 20px;
 }
 
-.gallery__like:hover {
+.place__like:hover {
   opacity: 0.5;
-}
-
-.gallery__like:active {
-  background-image: url(../../../images/Union.svg);
 }

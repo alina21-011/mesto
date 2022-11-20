@@ -10,6 +10,8 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 300px;
+  margin-left: 30px;
+  margin-top: 10px;
 }
 
 @media (max-width: 544px) {
@@ -17,5 +19,7 @@
     font-size: 27px;
     line-height: 33px;
     margin-top: 25px;
+    text-align: center;
+    /*margin-left: 12px*/
   }
 }
