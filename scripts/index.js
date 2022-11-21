@@ -9,6 +9,8 @@ let infoInput = document.querySelector('.popup__input_data_info');
 
 function openPopup() {
   popup.classList.add('popup_opened');
+  nameInput.value = profileName.textContent;
+  infoInput.value = profileDescription.textContent;
 }
 
 function closePopup() {
@@ -19,8 +21,6 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = infoInput.value;
-  nameInput.value = profileName.textContent;
-  infoInput.value = profileDescription.textContent;
   closePopup();
 };
 
