@@ -111,4 +111,4 @@ buttonClosePopupImage.addEventListener('click', function () {  //  закрыт�
 
 initialCards.forEach((dataCard) => {
   renderCard(dataCard);
-})
+});
