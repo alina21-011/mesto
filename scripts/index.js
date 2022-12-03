@@ -77,16 +77,7 @@ const handleFormSubmit = (event) => {
   closePopup(popupAdd);
 }
 
-// добавление карточки
-const renderCard = (dataCard) => {
-  placeContainer.prepend(generateCard(dataCard));
-
-}
-
-//слушатели попапа редактирования и добавления 
 popupForm.addEventListener('submit', submitFormHandler);
-
-
 
 buttonClosePopupProfile.addEventListener('click', function () {
   closePopup(popup);
@@ -109,6 +100,9 @@ buttonClosePopupImage.addEventListener('click', function () {  //  закрыт�
   closePopup(popupImage);
 });
 
+const renderCard = (dataCard) => {
+  placeContainer.prepend(generateCard(dataCard));
+}
 initialCards.forEach((dataCard) => {
   renderCard(dataCard);
 });
