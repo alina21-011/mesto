@@ -71,38 +71,42 @@ const handleFormSubmit = (event) => {
   renderCard({
     name: titleInput.value,
     link: urlInput.value
-  })
+  }) 
   closePopup(popupAdd);
 }
 
-popupForm.addEventListener('submit', submitFormHandler);
+popupForm.addEventListener('submit', submitFormHandler); 
 
-buttonClosePopupProfile.addEventListener('click', function () {
-  closePopup(popup);
-});
-buttonClosePopupAdd.addEventListener('click', function () {
-  closePopup(popupAdd);
-});
-buttonOpenPopupProfile.addEventListener('click', function () {
-  nameInput.value = profileName.textContent;
-  infoInput.value = profileDescription.textContent;
-  openPopup(popup);
-});
+buttonClosePopupProfile.addEventListener('click', function () { 
+  closePopup(popup); 
+}); 
 
-buttonOpenPopupAdd.addEventListener('click', function () {
-  openPopup(popupAdd);
-});
-buttonSubmitPopupAdd.addEventListener('submit', function () {
-  handleFormSubmit;
-  titleInput.value = '';
-  urlInput.value = '';
-});
+buttonClosePopupAdd.addEventListener('click', function () { 
+  closePopup(popupAdd); 
+}); 
 
-popupFormCard.addEventListener('submit', handleFormSubmit);
+buttonOpenPopupProfile.addEventListener('click', function () { 
+  nameInput.value = profileName.textContent; 
+  infoInput.value = profileDescription.textContent; 
+  openPopup(popup); 
+}); 
 
-buttonClosePopupImage.addEventListener('click', function () {  
-  closePopup(popupImage);
-});
+ 
+
+buttonOpenPopupAdd.addEventListener('click', function () { 
+  popupFormCard.reset();
+  openPopup(popupAdd); 
+}); 
+
+popupFormCard.addEventListener('submit', handleFormSubmit); 
+
+
+buttonSubmitPopupAdd.addEventListener('submit', handleFormSubmit); 
+
+
+buttonClosePopupImage.addEventListener('click', function () {  //  закрытие попапа с картинкой  
+  closePopup(popupImage); 
+}); 
 
 const renderCard = (dataCard) => {
   placeContainer.prepend(generateCard(dataCard));
