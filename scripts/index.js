@@ -72,8 +72,6 @@ const handleFormSubmit = (event) => {
     name: titleInput.value,
     link: urlInput.value
   })
-  titleInput.value = '';
-  urlInput.value = '';
   closePopup(popupAdd);
 }
 
@@ -94,9 +92,15 @@ buttonOpenPopupProfile.addEventListener('click', function () {
 buttonOpenPopupAdd.addEventListener('click', function () {
   openPopup(popupAdd);
 });
+buttonSubmitPopupAdd.addEventListener('submit', function () {
+  handleFormSubmit;
+  titleInput.value = '';
+  urlInput.value = '';
+});
+
 popupFormCard.addEventListener('submit', handleFormSubmit);
-buttonSubmitPopupAdd.addEventListener('submit', handleFormSubmit); // добавление новой карточки
-buttonClosePopupImage.addEventListener('click', function () {  //  закрытие попапа с картинкой 
+
+buttonClosePopupImage.addEventListener('click', function () {  
   closePopup(popupImage);
 });
 
