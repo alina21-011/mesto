@@ -36,9 +36,14 @@
     <div class="popup__container">
       <button class="popup__close" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form" method="post" name="form">
-        <input type="text" class="popup__input popup__input_data_name" required name="name">
-        <input type="text" class="popup__input popup__input_data_info" required name="info">
+      <form class="popup__form" method="post" name="form" novalidate>
+
+        <input type="text" class="popup__input popup__input_data_name"  id="input-name" required name="name" minlength="2" maxlength="40">
+        <span id="name-error" class="popup__error"></span>
+
+        <input type="text" class="popup__input popup__input_data_info" id="input-info" required name="info" minlength="2" maxlength="200">
+        <span id="info-error" class="popup__error"></span>
+
         <button type="submit" class="popup__input-save">Сохранить</button>
       </form>
     </div>
@@ -47,11 +52,15 @@
     <div class="popup__container">
       <button class="popup__close popup__close_add" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form_card" method="post" name="form">
-        <input type="text" class="popup__input popup__input_data_title" required name="title" placeholder="Название">
-        <input type="text" class="popup__input popup__input_data_url" required name="url"
-          placeholder="Ссылка на картинку">
-        <button type="submit" class="popup__input-save popup__input-add">Создать</button>
+      <form class="popup__form popup__form_card" method="post" name="form" novalidate>
+
+        <input type="text" class="popup__input popup__input_data_title" required name="title" placeholder="Название" minlength="2" maxlength="30">
+        <span id="title-error" class="popup__error"></span>
+
+        <input type="url" class="popup__input popup__input_data_url" required name="url" placeholder="Ссылка на картинку">
+        <span id="url-error" class="popup__error"></span>
+
+        <button type="submit" class="popup__input-save popup__input-add popup__input-save_disabled">Создать</button>
       </form>
     </div>
   </div>
@@ -65,8 +74,8 @@
   <template id="card">
     <article class="place">
       <div class="place__image">
-      <img  class="place__photo">
-    </div>
+        <img class="place__photo">
+      </div>
       <div class="place__info">
         <h2 class="place__title" id=""></h2>
         <button class="place__like" type="button" aria-label="Нравится фотография"></button>
