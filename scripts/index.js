@@ -1,5 +1,5 @@
-const popup = document.querySelector('.popup_edit'); // Фон попап окна
-const popupForm = document.querySelector('.popup__form'); // форма)))
+const popupProfile = document.querySelector('.popup_edit'); // Фон попап окна
+const formProfile = document.querySelector('.popup__form_profile'); // форма)))
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //  Кнопки для показа окна
 const buttonClosePopupProfile = document.querySelector('.popup__close'); // Кнопка для скрытия окна
 const profileName = document.querySelector('.profile__name');
@@ -19,20 +19,25 @@ const cardtemplate = document.querySelector('#card').content.querySelector('.pla
 const popupPhoto = document.querySelector('.popup__image');
 const popupPhotoTitle = document.querySelector('.popup__image-title');
 const buttonClosePopupImage = document.querySelector('.popup__close_image');
+const ESC_CODE = 'Escape';
 
 function openPopup(popupElement) {   //общая функция открытия 
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown',  closeByEsc);
+  document.addEventListener("click",  closeByOverlay);
 }
 
 function closePopup(popupElement) {  //общая функция закрытия 
   popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown',  closeByEsc);
+  document.removeEventListener("click",  closeByOverlay);
 }
 
-function submitFormHandler(evt) {  ////попап редактирования профиля
+function submitProfileForm(evt) {  ////попап редактирования профиля
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileDescription.textContent = infoInput.value;
-  closePopup(popup);
+  closePopup(popupProfile);
 };
 
 const handleDeleteCard = (event) =>   //удаляем карточку
@@ -67,7 +72,7 @@ const generateCard = (dataCard) => {
 }
 
 //попап добавления
-const handleFormSubmit = (event) => {
+const submitCardForm = (event) => {
   event.preventDefault();
   renderCard({
     name: titleInput.value,
@@ -76,16 +81,23 @@ const handleFormSubmit = (event) => {
   closePopup(popupAdd);
 }
 
-document.addEventListener("keydown", (e) => {
-  if (document.querySelector('.popup_opened') && e.code === "Escape") {
-    closePopup(document.querySelector('.popup_opened'))
-    } 
-})
+function closeByEsc(evt) {
+  if (evt.key === ESC_CODE) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup); 
+  }
+} 
 
-popupForm.addEventListener('submit', submitFormHandler);
+function closeByOverlay(e) {
+  if (e.target.classList.contains('popup')) {
+    closePopup(e.target);
+  }
+} 
+
+formProfile.addEventListener('submit', submitProfileForm);
 
 buttonClosePopupProfile.addEventListener('click', function () {
-  closePopup(popup);
+  closePopup(popupProfile);
 });
 
 buttonClosePopupAdd.addEventListener('click', function () {
@@ -95,7 +107,7 @@ buttonClosePopupAdd.addEventListener('click', function () {
 buttonOpenPopupProfile.addEventListener('click', function () {
   nameInput.value = profileName.textContent;
   infoInput.value = profileDescription.textContent;
-  openPopup(popup);
+  openPopup(popupProfile);
 });
 
 
@@ -107,83 +119,21 @@ buttonOpenPopupAdd.addEventListener('click', function () {
   buttonSubmitPopupAdd.classList.add('popup__input-save_disabled');
 });
 
-popupFormCard.addEventListener('submit', handleFormSubmit);
+popupFormCard.addEventListener('submit', submitCardForm);
 
 
-buttonSubmitPopupAdd.addEventListener('submit', handleFormSubmit);
+buttonSubmitPopupAdd.addEventListener('submit', submitCardForm);
 
 
 buttonClosePopupImage.addEventListener('click', function () {  //  закрытие попапа с картинкой  
   closePopup(popupImage);
 });
 
-document.addEventListener("click", (e) => {  
-  if (e.target.classList.contains('popup')) {     
-    closePopup(e.target);
-   } 
-});
 
 const renderCard = (dataCard) => {
   placeContainer.prepend(generateCard(dataCard));
 }
 initialCards.forEach((dataCard) => {
   renderCard(dataCard);
-});
-
-const checkEnableValidation = (input, {errorClass, inputErrorClass}) => {
-  const inputName = input.getAttribute('name');
-  const errorElement = document.getElementById(`${inputName}-error`);
-  if (input.validity.valid) {
-    errorElement.textContent = '';
-    errorElement.classList.remove(errorClass);
-    input.classList.remove(inputErrorClass);
-  }
-  else {
-    errorElement.textContent = input.validationMessage;
-    errorElement.classList.add(errorClass);
-    input.classList.add(inputErrorClass);
-  }
-}
-
-const changeButton = (inputs,button, {inactiveButtonClass})  => {
-  const isFormValid = inputs.every(input => input.validity.valid)
-
-    if(isFormValid) {
-        button.classList.remove(inactiveButtonClass);
-        button.disabled = '';
-
-    } else {
-        button.classList.add(inactiveButtonClass);
-        button.disabled = 'disabled';
-    }
-}
-const enableValidation = ({formSelector, inputSelector, submitButtonSelector, ...rest}) => {
-  const forms = Array.from(document.querySelectorAll(formSelector));
-
-  forms.forEach(form => {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault()
-    })
-
-    const inputs = [...form.querySelectorAll(inputSelector)];
-    const button = form.querySelector(submitButtonSelector);
-
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        checkEnableValidation(input, rest);
-        changeButton(inputs, button, rest);
-      })
-    })
-  })
-}
-
-
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__input-save',
-  inactiveButtonClass: 'popup__input-save_disabled',
-  errorClass: 'popup__error_active',
-  inputErrorClass: 'popup__input_type_error',
 });
 
