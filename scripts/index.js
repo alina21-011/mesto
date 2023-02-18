@@ -1,3 +1,6 @@
+import Card from '../scripts/Card.js';
+import FormValidator from '../scripts/FormValidator.js'
+
 const popupProfile = document.querySelector('.popup_edit'); // Фон попап окна
 const formProfile = document.querySelector('.popup__form_profile'); // форма)))
 const buttonOpenPopupProfile = document.querySelector('.profile__edit-button'); //  Кнопки для показа окна
@@ -23,14 +26,14 @@ const ESC_CODE = 'Escape';
 
 function openPopup(popupElement) {   //общая функция открытия 
   popupElement.classList.add('popup_opened');
-  document.addEventListener('keydown',  closeByEsc);
-  document.addEventListener("click",  closeByOverlay);
+  document.addEventListener('keydown', closeByEsc);
+  document.addEventListener("click", closeByOverlay);
 }
 
 function closePopup(popupElement) {  //общая функция закрытия 
   popupElement.classList.remove('popup_opened');
-  document.removeEventListener('keydown',  closeByEsc);
-  document.removeEventListener("click",  closeByOverlay);
+  document.removeEventListener('keydown', closeByEsc);
+  document.removeEventListener("click", closeByOverlay);
 }
 
 function submitProfileForm(evt) {  ////попап редактирования профиля
@@ -40,39 +43,17 @@ function submitProfileForm(evt) {  ////попап редактирования �
   closePopup(popupProfile);
 };
 
-const handleDeleteCard = (event) =>   //удаляем карточку
-  event.target.closest('.place').remove();
+function previwCard(link, name) {
+  //превью картинки!!!!добавить в кард
+  popupPhoto.src = link;
+  popupPhotoTitle.textContent = name;
+  popupPhoto.alt = name;
+  openPopup(popupImage);
 
-const handleLikeCard = (event) =>  //лайкаем карточку 
-  event.target.classList.toggle('place__like_active');
-
-const generateCard = (dataCard) => {
-  const newCard = cardtemplate.cloneNode(true);
-  const title = newCard.querySelector('.place__title');
-  const photo = newCard.querySelector('.place__photo');
-
-  const deleteButton = newCard.querySelector('.place__delete');
-  deleteButton.addEventListener('click', handleDeleteCard)
-
-  const likeButton = newCard.querySelector('.place__like');
-  likeButton.addEventListener('click', handleLikeCard)
-
-  photo.src = dataCard.link;
-  title.textContent = dataCard.name;
-  photo.alt = dataCard.name;
-
-  photo.addEventListener('click', function () {
-    popupPhoto.src = dataCard.link;
-    popupPhotoTitle.textContent = dataCard.name;
-    popupPhoto.alt = dataCard.name;
-    openPopup(popupImage);
-
-  })
-  return newCard;
 }
 
-//попап добавления
-const submitCardForm = (event) => {
+
+const submitCardForm = (event) => {  //попап добавления!!! отредактировать тут 
   event.preventDefault();
   renderCard({
     name: titleInput.value,
@@ -84,15 +65,15 @@ const submitCardForm = (event) => {
 function closeByEsc(evt) {
   if (evt.key === ESC_CODE) {
     const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup); 
+    closePopup(openedPopup);
   }
-} 
+}
 
 function closeByOverlay(e) {
   if (e.target.classList.contains('popup')) {
     closePopup(e.target);
   }
-} 
+}
 
 formProfile.addEventListener('submit', submitProfileForm);
 
@@ -110,8 +91,6 @@ buttonOpenPopupProfile.addEventListener('click', function () {
   openPopup(popupProfile);
 });
 
-
-
 buttonOpenPopupAdd.addEventListener('click', function () {
   popupFormCard.reset();
   openPopup(popupAdd);
@@ -121,19 +100,41 @@ buttonOpenPopupAdd.addEventListener('click', function () {
 
 popupFormCard.addEventListener('submit', submitCardForm);
 
-
 buttonSubmitPopupAdd.addEventListener('submit', submitCardForm);
-
 
 buttonClosePopupImage.addEventListener('click', function () {  //  закрытие попапа с картинкой  
   closePopup(popupImage);
 });
 
 
-const renderCard = (dataCard) => {
-  placeContainer.prepend(generateCard(dataCard));
+const renderCard = (data) => {
+  const card = new Card(data, '#card', previwCard);
+  const cardElement = card.generateCard();
+  document.querySelector('.gallery').prepend(cardElement);
 }
-initialCards.forEach((dataCard) => {
-  renderCard(dataCard);
+
+
+
+initialCards.forEach((data) => {
+  renderCard(data);
 });
+
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__input-save',
+  inactiveButtonClass: 'popup__input-save_disabled',
+  errorClass: 'popup__error_active',
+  inputErrorClass: 'popup__input_type_error',
+};
+
+
+
+
+const validatorAddCard = new FormValidator(config, popupFormCard);
+const validatorProfile = new FormValidator(config, formProfile);
+
+validatorAddCard.enableValidation();
+validatorProfile.enableValidation();
+
 
