@@ -22,6 +22,7 @@ const cardtemplate = document.querySelector('#card').content.querySelector('.pla
 const popupPhoto = document.querySelector('.popup__image');
 const popupPhotoTitle = document.querySelector('.popup__image-title');
 const buttonClosePopupImage = document.querySelector('.popup__close_image');
+const card = document.querySelector('#card');
 const ESC_CODE = 'Escape';
 
 function openPopup(popupElement) {   //общая функция открытия 
@@ -43,8 +44,7 @@ function submitProfileForm(evt) {  ////попап редактирования �
   closePopup(popupProfile);
 };
 
-function previwCard(link, name) {
-  //превью картинки!!!!добавить в кард
+function previwCard(link, name) {//превью картинки!!!!добавить в кард
   popupPhoto.src = link;
   popupPhotoTitle.textContent = name;
   popupPhoto.alt = name;
@@ -53,14 +53,16 @@ function previwCard(link, name) {
 }
 
 
-const submitCardForm = (event) => {  //попап добавления!!! отредактировать тут 
+const submitCardForm = (event) => {  //попап добавления
   event.preventDefault();
-  renderCard({
+  const newCard = {
     name: titleInput.value,
     link: urlInput.value
-  })
+  };
+  placeContainer.prepend(renderCard(newCard)); 
   closePopup(popupAdd);
 }
+
 
 function closeByEsc(evt) {
   if (evt.key === ESC_CODE) {
@@ -110,14 +112,19 @@ buttonClosePopupImage.addEventListener('click', function () {  //  закрыт�
 const renderCard = (data) => {
   const card = new Card(data, '#card', previwCard);
   const cardElement = card.generateCard();
-  document.querySelector('.gallery').prepend(cardElement);
+  return cardElement;
 }
 
 
+function addInitialCards() {
+  initialCards.forEach((card) => {
+    const cardTemplate = renderCard(card)
+    placeContainer.prepend(cardTemplate);  
+  })
+}
 
-initialCards.forEach((data) => {
-  renderCard(data);
-});
+addInitialCards();
+
 
 const config = {
   formSelector: '.popup__form',
@@ -136,5 +143,3 @@ const validatorProfile = new FormValidator(config, formProfile);
 
 validatorAddCard.enableValidation();
 validatorProfile.enableValidation();
-
-
