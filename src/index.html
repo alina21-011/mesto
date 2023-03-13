@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 
 <body class="page">
   <header class="header">
-    <img class="header__logo" src="images/Vector.svg" alt="логотип">
+    <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="логотип">  
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__main">
-        <img class="profile__avatar" src="./images/avatar1.jpg" alt="Главное фото профиля">
+        <img class="profile__avatar" src="<%=require('./images/avatar1.jpg')%>" alt="Главное фото профиля">
         <div class="profile__info">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <p class="profile__description">Исследователь океана</p>
@@ -52,10 +51,10 @@
       <button class="popup__close popup__close_add" type="reset" aria-label="Закрыть"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form popup__form_card" method="post" name="form-card" novalidate>
-        <input id="title" type="text" class="popup__input popup__input_data_title" required name="title"
+        <input id="title" type="text" class="popup__input popup__input_data_title" required name="name"
           placeholder="Название" minlength="2" maxlength="30">
         <span id="title-error" class="popup__error title-error"></span>
-        <input id="url" type="url" class="popup__input popup__input_data_url" required name="url"
+        <input id="url" type="url" class="popup__input popup__input_data_url" required name="link"
           placeholder="Ссылка на картинку">
         <span id="url-error" class="popup__error url-error"></span>
         <button type="submit" class="popup__input-save popup__input-add popup__input-save_disabled">Создать</button>
@@ -81,9 +80,6 @@
       </div>
     </article>
   </template>
-  <script src="./scripts/cards.js"></script>
-  <script type="module" src="./scripts/index.js" defer></script>
-
 
 
 </body>

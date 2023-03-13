@@ -1,4 +1,5 @@
 export default class FormValidator {
+  
   constructor(config, formElement) {
     this._config = config;
     this._formElement = formElement;
@@ -12,6 +13,7 @@ export default class FormValidator {
 
 
   _checkInputValidity = (inputElement) => {
+  
     const inputError = this._formElement.querySelector(`.${inputElement.id}-error`);
     if (!inputElement.validity.valid) {
       inputElement.classList.add(this._inputErrorClass);

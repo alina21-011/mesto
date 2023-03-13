@@ -23,7 +23,8 @@ export default class Card {
   _setEventListeners() {
     this._element.querySelector('.place__delete').addEventListener('click', this._deleteCard.bind(this));
     this._likeButton.addEventListener('click', this._likeCard.bind(this));
-    this._placePhoto.addEventListener('click', this.previwCard.bind(this._name, this._link, this._name));
+    this._placePhoto.addEventListener('click', () => this.previwCard(this._name, this._link));
+
 
   }
 
