@@ -31,6 +31,10 @@ export default class FormValidator {
     });
   };
 
+  disableButton = () => {
+    this._submitButtonSelector.classList.add(this._inactiveButtonClass);
+    this._submitButtonSelector.disabled = true;
+  }
 
   _toggleButtonState = () => {
     if (this._hasInvalidInput()) {

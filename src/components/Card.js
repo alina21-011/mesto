@@ -3,7 +3,7 @@ export default class Card {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
-    this.previwCard = previwCard;
+    this._previwCard = previwCard;
     this._element = this._getTemplate();
     this._likeButton = this._element.querySelector('.place__like');
     this._placePhoto = this._element.querySelector('.place__photo');
@@ -23,7 +23,7 @@ export default class Card {
   _setEventListeners() {
     this._element.querySelector('.place__delete').addEventListener('click', this._deleteCard.bind(this));
     this._likeButton.addEventListener('click', this._likeCard.bind(this));
-    this._placePhoto.addEventListener('click', () => this.previwCard(this._name, this._link));
+    this._placePhoto.addEventListener('click', () => this._previwCard(this._name, this._link));
 
 
   }

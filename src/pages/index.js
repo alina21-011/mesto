@@ -1,12 +1,13 @@
 import Popup from '../components/Popup.js';
 import Card from '../components/Card.js';
-import {initialCards} from "../utils/cards.js";
+import { initialCards } from "../utils/cards.js";
 import FormValidator from '../components/FormValidator.js'
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import './index.css'; 
+
+import './index.css';
 
 import {
   buttonOpenPopupProfile,
@@ -15,17 +16,18 @@ import {
   infoInput,
   buttonOpenPopupAdd,
   popupFormCard,
-  config
+  config,
+  submitButton
 }
-from "../utils/constants.js";
+  from "../utils/constants.js";
 
 const section = new Section({ items: initialCards, renderer: (data) => createCard(data) }, '.gallery');
 const popupProfile = new PopupWithForm('.popup_edit', submitEditProfileForm);
 popupProfile.setEventListeners();
 const popupWithImage = new PopupWithImage('.popup_photo');
 popupWithImage.setEventListeners();
-const popupCards = new PopupWithForm('.popup_add', handleFormCardSubmit);
-popupCards.setEventListeners();
+const popupCard = new PopupWithForm('.popup_add', handleFormCardSubmit);
+popupCard.setEventListeners();
 
 const userInfo = new UserInfo('.profile__name', '.profile__description');
 
@@ -44,14 +46,16 @@ function submitEditProfileForm(data) {
   userInfo.setUserInfo(data);
 }
 
+const validatorAddCard = new FormValidator(config, popupFormCard);
+const validatorProfile = new FormValidator(config, formProfile);
+
 buttonOpenPopupAdd.addEventListener('click', () => {
-  popupCards.open();
-  popupFormCard.reset();
+  popupCard.open();
+  validatorAddCard.disableButton();
+  
 })
 
 
-const validatorAddCard = new FormValidator(config, popupFormCard);
-const validatorProfile = new FormValidator(config, formProfile);
 
 validatorAddCard.enableValidation();
 validatorProfile.enableValidation();

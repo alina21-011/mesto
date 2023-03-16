@@ -41,16 +41,16 @@ module.exports = {
         options: { importLoaders: 1 }
       },
         // Добавьте postcss-loader
-      'postcss-loader']
+        'postcss-loader']
     },
-    
-  ]
-},
+
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin(), // использовали плагин
-  ] 
+  ]
 }
