@@ -7,10 +7,12 @@
   background-position: center;
   background-color: white;
   min-width: 22px;
-  margin-left: 30px;
-  margin-right: 20px;
+  min-height: 22px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .place__like:hover {
   opacity: 0.5;
 }
+

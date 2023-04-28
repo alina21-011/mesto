@@ -1,0 +1,10 @@
+.place__like_container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 22px 20px 22px 0 ;
+  max-width: 22px;
+  max-height: 35px;
+  padding: 0;
+}
