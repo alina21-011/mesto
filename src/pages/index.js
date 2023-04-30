@@ -40,7 +40,7 @@ const popupProfile = new PopupWithForm('.popup_edit', submitEditProfileForm);
 const popupWithImage = new PopupWithImage('.popup_photo');
 
 
-const popupInputLinkAvatar = document.querySelector(".url_avatar");
+const popupInputLinkAvatar = document.querySelector(".popup__input_link");
 const editAvatarBtn = document.querySelector(".profile__avatar-btn");
 
 const userInfo = new UserInfo('.profile__name', '.profile__description', '.profile__avatar');
