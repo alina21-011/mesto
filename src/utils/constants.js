@@ -5,6 +5,7 @@ export const buttonOpenPopupAdd = document.querySelector('.profile__add-button')
 export const popupFormCard = document.querySelector('.popup__form_card');
 export const formProfile = document.querySelector('.popup__form_profile');
 export const submitButton = document.querySelector('.popup__input-save');
+export const formAvatar = document.querySelector('.popup__form_avatar');
 
 
 

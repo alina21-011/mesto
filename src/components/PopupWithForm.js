@@ -3,7 +3,7 @@ import Popup from '../components/Popup.js';
 export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleSumbit) {
     super(popupSelector)
-   
+
     this._form = this._popupElement.querySelector('.popup__form');
     this._handleSumbit = handleSumbit;
     this._inputList = Array.from(this._form.querySelectorAll('.popup__input'));
@@ -29,18 +29,19 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-
-
-      const initialText = this._submitButton.textContent;
-      this._submitButton.textContent = "Сохранение...";
       this._handleSumbit(this._getInputValues())
-      .then(() => this.close())
-      .finally(() => {
-        this._submitButton.textContent = initialText;
-      });
     });
-
   }
-  
+  loading(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = 'Сохранение...'
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
+  }
+
 
 }
+
+
+

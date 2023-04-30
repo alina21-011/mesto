@@ -28,6 +28,7 @@ export default class FormValidator {
   _hasInvalidInput = () => {
     return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
+
     });
   };
 
@@ -48,11 +49,11 @@ export default class FormValidator {
 
   _setEventListeners = () => {
     this._toggleButtonState();
+  
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input',  () => {
         this._toggleButtonState();
-        this._checkInputValidity(inputElement);
-        
+        this._checkInputValidity(inputElement); 
       });
     });
   };
